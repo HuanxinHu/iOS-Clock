@@ -1,0 +1,18 @@
+<header>
+      <h1>{{title}}</h1>
+</header>
+<div class="stopwatch-content">
+  <div class="counter">
+    <p class="lap-time">{{countLapTime}}</p>
+    <p class="total-time">{{countTotalTime}}</p>
+  </div>
+  <div class="buttons">
+    <button {{action 'btstop'}}{{bind-attr class=':left-button leftButtonClass'}}>{{leftButtonText}}</button>
+    <button {{action 'btlap'}}{{bind-attr class=':right-button rightButtonClass'}}>{{rightButtonText}}</button>
+  </div>
+  <ul class="laps">
+    {{#each item in lapList}}
+      <li><p class="lap-label">Lap {{item.count}}</p><p class="lap-time">{{item.lapitem}}</p></li>
+    {{/each}}
+  </ul>
+</div>

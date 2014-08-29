@@ -1,0 +1,17 @@
+<header>
+  <h1>{{title}}</h1>
+</header>
+<div class="timer-content">
+  <div class="counter" {{bind-attr style='counterShow'}}>
+    <p class="total-time">{{timerTotalTime}}</p>
+  </div>
+  <div class="inputs" {{bind-attr style='inputShow'}}>
+    <input class="hours" type="number" name="hours" max="100" min="0" value="0"/>
+    <input class="minutes" type="number" name="minutes" max="59" min="0" value="0"/>
+  </div>
+  <div class="buttons">
+    <button {{action 'btstart'}} {{bind-attr class=":left-button leftButtonClass"}}>{{leftbutton}}</button>
+    <button {{action 'btpause'}} {{bind-attr class=":right-button rightButtonClass"}}>{{rightbutton}}</button>
+  </div>
+</div>
+

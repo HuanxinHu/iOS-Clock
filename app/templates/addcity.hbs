@@ -1,0 +1,27 @@
+<div id='addcity'>
+	<header>
+		<div>Choose a City.</div>
+		{{input value=inputVal}}<span {{action 'cancel'}}>Cancel</span>
+	</header>
+	{{#if pleasetype}}
+		<div class='typein'><span>Please type to find a city.</span></div>
+	{{/if}}
+	{{#if keeptype}}
+		<div class='typein'><span>Keep typing...</span></div>
+	{{/if}}
+	{{#if noResult}}
+		{{#unless citydataTest}}
+			<div class='typein'><span>No result found, try another city.</span></div>
+		{{/unless}}
+	{{/if}}
+	<ul class="addcity-list">
+		{{#each citydataTest}}
+			{{#if citys}}
+			<li class='alpha'><span><strong>{{firstLetter}}</strong></span></li>
+			{{/if}}
+			{{#each citys}}
+			<li class='city' {{action 'addcity' this}}><p>{{cityName}}</p></li>
+			{{/each}}
+		{{/each}}
+	</ul>
+</div>

@@ -1,0 +1,16 @@
+<div id='worldclock'>
+	<header>
+	  <span {{bind-attr class='editState'}} {{action 'toggle'}}>{{editDone}}</span><h1>{{title}}</h1>{{#link-to 'addcity'}}<span>+</span>{{/link-to}}
+	</header>
+	<ul class="worldclock-list">
+		{{#each city in citydata}}
+		<li  {{bind-attr id='id'}}>
+			<div {{bind-attr class='editState:circle'}} {{action 'deletecity' city}}><div id="dash"></div></div>
+			<p {{bind-attr class=':city shiftRight'}}>{{city.cityName}}</p>
+			<p {{bind-attr class=':time-details shiftRight'}}><strong>{{city.day}}</strong><span>{{city.hours}}</span></p>
+			<p {{bind-attr class=':time timeDisapper isDigi'}}{{action 'digAnaShow'}}><a >{{city.localTime}}</a></p>
+			<div {{bind-attr class='timeDisapper isAna'}}{{action 'digAnaShow'}}><a href="">{{canvas-clock data=city.localAnaTime}}</a></div>
+		</li>
+		{{/each}}
+	</ul>
+</div>
